@@ -17,4 +17,6 @@ Diseño de Informes: **Jaspersoft Studio** (Community Edition)
 Librerías: **pyreportjasper**  
 
 ## Ventana Principal
+Para usar el software una vez ejecutado, primero hay que seleccionar la carpeta donde están todos las plantillas de informes JRXML para seleccionar uno de ellos para generar un PDF basado en los datos obtenidos de la BD correspondientes.  
+
 <img width="527" height="452" alt="Captura de pantalla 2025-11-15 134614" src="https://github.com/user-attachments/assets/342481e1-032c-4554-b1b2-140343a72105" />
