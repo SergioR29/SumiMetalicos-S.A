@@ -3,7 +3,7 @@ Proyecto de software para que la compañía SumiMetalicos S.A pueda generar info
 
 ## Requisitos para su ejecución
 - JVM (Java Virtual Machine)
-- Linux
+- Linux (SO compatible para la generación de informes por la configuración de rutas en el código del controlador **_crearinforme.py_**)
 
 ## Tecnologías utilizadas
 Lenguaje de Programación: **Python**    
