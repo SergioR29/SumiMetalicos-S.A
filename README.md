@@ -6,10 +6,12 @@ Proyecto de software para que la compañía SumiMetalicos S.A pueda generar info
 - Linux (SO compatible para la generación de informes por la configuración de rutas en el código del controlador "**crearinforme.py**")
 
 ## Tecnologías utilizadas
-Lenguaje de Programación: **Python**    
-Entornos de Desarrollo: **Eclipse IDE** (con plugin **PyDev**) y **Jaspersoft Studio** (Community Edition)  
-Base de Datos: **SQLite** (también se aloja un fichero SQL para generar la BD en MySQL)  
+- Lenguaje de Programación: **Python**
+- Entornos de Desarrollo: **Eclipse IDE** (con plugin **PyDev**)
+- Patrón de Diseño y Arquitectura: **MVC**  
 
-Patrón de Diseño y Arquitectura: **MVC**  
-Frameworks: **PySide6** (GUI de Escritorio)  
-Librerías: **pyreportjasper**  
+- Base de Datos: **SQLite** (también se aloja un fichero SQL para generar la BD en MySQL)  
+- Frameworks: **PySide6** (GUI de Escritorio)  
+
+- Diseño de Informes: **Jaspersoft Studio** (Community Edition)  
+- Librerías: **pyreportjasper**  
