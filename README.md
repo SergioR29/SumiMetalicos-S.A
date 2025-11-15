@@ -15,3 +15,6 @@ Frameworks: **PySide6** (GUI de Escritorio)
 
 Diseño de Informes: **Jaspersoft Studio** (Community Edition)  
 Librerías: **pyreportjasper**  
+
+## Ventana Principal
+<img width="527" height="452" alt="Captura de pantalla 2025-11-15 134614" src="https://github.com/user-attachments/assets/342481e1-032c-4554-b1b2-140343a72105" />
