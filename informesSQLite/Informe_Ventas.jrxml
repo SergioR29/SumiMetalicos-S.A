@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 6.20.6  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Informe_Ventas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="31b12de9-89dc-4992-a7bf-1bc0fa9ffab1">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT C.Nombre, COUNT(*) as n_articulos, strftime("%m", p.Fecha_Pedido) as mes_n,
+CASE strftime("%m", p.Fecha_Pedido) 
+           WHEN '01' THEN 'Enero'
+           WHEN '02' THEN 'Febrero'
+           WHEN '03' THEN 'Marzo'
+           WHEN '04' THEN 'Abril'
+           WHEN '05' THEN 'Mayo'
+           WHEN '06' THEN 'Junio'
+           WHEN '07' THEN 'Julio'
+           WHEN '08' THEN 'Agosto'
+           WHEN '09' THEN 'Septiembre'
+           WHEN '10' THEN 'Octubre'
+           WHEN '11' THEN 'Noviembre'
+           WHEN '12' THEN 'Diciembre'
+       END AS mes
+FROM pedidos P, clientes C, detalle_pedidos DP, articulos A 
+WHERE P.Id_cliente = C.Id_cliente AND DP.ID_Pedido = P.ID_Pedido AND DP.Id_articulo = A.Id_articulo
+GROUP BY C.Id_cliente, mes
+ORDER BY mes_n]]>
+	</queryString>
+	<field name="Nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="n_articulos" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="n_articulos"/>
+		<property name="com.jaspersoft.studio.field.label" value="n_articulos"/>
+	</field>
+	<field name="mes_n" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="mes_n"/>
+		<property name="com.jaspersoft.studio.field.label" value="mes_n"/>
+	</field>
+	<field name="mes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="mes"/>
+		<property name="com.jaspersoft.studio.field.label" value="mes"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="0" width="450" height="79" uuid="ef5e0f7a-d113-471a-880f-3c0b80c976ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="31" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NºARTÍCULOS vendidos 
+por mes]]></text>
+			</staticText>
+			<image>
+				<reportElement x="470" y="3" width="75" height="73" uuid="74468dd6-04d4-4201-82f1-64ea495d6ea9"/>
+				<imageExpression><![CDATA["informesSQLite/logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="444" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="80" y="0" width="390" height="260" uuid="edfe6196-e045-436d-a7c2-65f083ba6505"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{Nombre}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{n_articulos}]]></valueExpression>
+						<labelExpression><![CDATA[$F{Nombre}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="330" y="360" width="180" height="30" uuid="44e4d4bb-886d-44c9-aaca-72192d10121b"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="360" width="240" height="30" uuid="83929bef-9273-494a-a1e0-9dc8a9d6c776"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Fecha de generación del informe:]]></text>
+			</staticText>
+			<textField pattern="HH:MM">
+				<reportElement x="370" y="390" width="180" height="30" uuid="5ce439dc-a8fb-4b22-9fdf-7a5b860f7711"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="330" y="390" width="40" height="30" uuid="d2137c33-6dbe-48d9-9803-1cdfe28c7960"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[a las ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="3" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="9" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

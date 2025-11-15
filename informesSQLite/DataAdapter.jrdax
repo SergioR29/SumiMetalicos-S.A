@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
+	<name>DataAdapter</name>
+	<classpath>C:\Users\neptu\AppData\Local\Programs\Python\Python312\Lib\site-packages\pyreportjasper\libs\jdbc\sqlite-jdbc-3.49.0.0.jar</classpath>
+	<driver>org.sqlite.JDBC</driver>
+	<username></username>
+	<password></password>
+	<url>jdbc:sqlite:C:/Users/neptu/eclipse-workspace_DI_PY/tarea7/modelos/fabrica.db</url>
+	<database></database>
+	<savePassword>true</savePassword>
+	<serverAddress></serverAddress>
+</jdbcDataAdapter>
